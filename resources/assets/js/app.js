@@ -6,6 +6,8 @@
  */
 
 require('./bootstrap');
+require('sweetalert');
+require('slug');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -14,6 +16,7 @@ require('./bootstrap');
  */
 
 Vue.component('example', require('./components/Example.vue'));
+// Vue.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#csrf-token').getAttribute('content');
 
 const app = new Vue({
     el: '#app'
