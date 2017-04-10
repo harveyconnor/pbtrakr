@@ -23,4 +23,5 @@ mix.js('resources/assets/js/app.js', 'public/js')
     .copy('resources/assets/plugins/switchery/switchery.min.js', 'public/js/plugins')
     .copy('resources/assets/js/theme/jquery.core.js', 'public/js')
     .copy('resources/assets/js/theme/jquery.app.js', 'public/js')
-    .copy('resources/assets/fonts', 'public/fonts');
+    .copy('resources/assets/fonts', 'public/fonts')
+    .copy('resources/assets/plugins/select2','public/plugins/select2', false);

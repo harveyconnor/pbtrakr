@@ -10,10 +10,12 @@
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
 
     <!-- App title -->
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('pageTitle') - {{ config('app.name', 'Laravel') }}</title>
 
     <!-- Switchery css -->
     <link href="{{ asset('css/plugins/switchery.min.css') }}" rel="stylesheet" />
+
+    @yield('styles')
 
     <!-- App CSS -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" />

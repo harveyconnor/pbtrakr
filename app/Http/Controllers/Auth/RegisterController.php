@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Google;
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -48,7 +50,9 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
+            'first_name' => 'required|max:255',
+            'last_name' => 'required|max:255',
+            'country' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
         ]);
@@ -62,10 +66,28 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
+        $identifier_key = md5(str_random(16));
+
+        $user = User::create([
+            'identifier_key' => $identifier_key,
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'country' => $data['country'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+
+        // Need to improve this validation...
+        if (Session::has('googleId')) {
+            Google::create([
+                'user_id' => $identifier_key,
+                'google_id' => Session::get('googleId'),
+                'avatar' => Session::get('avatar'),
+                'name' => Session::get('name'),
+                'nickname' => Session::get('nickname'),
+            ]);
+        }
+
+        return $user;
     }
 }

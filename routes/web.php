@@ -14,7 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('/auth/google','GoogleController@redirectToProvider');
+Route::get('/auth/google/callback','GoogleController@handleProviderCallback');

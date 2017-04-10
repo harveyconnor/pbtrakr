@@ -4,8 +4,7 @@
         <div class="container">
             <!-- LOGO -->
             <div class="topbar-left">
-                <a href="index.html" class="logo">
-                    <i class="zmdi zmdi-group-work icon-c-logo"></i>
+                <a href="{{ url('/') }}" class="logo">
                     <span>PBTrakr.com</span>
                 </a>
             </div>
@@ -35,31 +34,19 @@
                     <li class="nav-item dropdown notification-list">
                         <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
                            aria-haspopup="false" aria-expanded="false">
-                            <img src="https://www.guidesmiths.com/uploads/images/1450466520567_avatar-default_1.png" alt="user" class="img-circle">
+                            <img src="@if(Auth::user()->googles->first()->avatar){{ Auth::user()->googles->first()->avatar }}@else{{ asset('img/avatar.png') }}@endif" alt="user" class="img-circle">
                         </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-arrow profile-dropdown " aria-labelledby="Preview">
-                            <!-- item-->
+
                             <div class="dropdown-item noti-title">
-                                <h5 class="text-overflow"><small>Welcome ! John</small> </h5>
+                                <h5 class="text-overflow"><small>{{ Auth::user()->first_name." ".Auth::user()->last_name }}</small> </h5>
                             </div>
 
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <a href="{{ url('/profile') }}" class="dropdown-item notify-item">
                                 <i class="zmdi zmdi-account-circle"></i> <span>Profile</span>
                             </a>
 
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <i class="zmdi zmdi-settings"></i> <span>Settings</span>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <i class="zmdi zmdi-lock-open"></i> <span>Lock Screen</span>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <a href="{{ url('/logout') }}" class="dropdown-item notify-item">
                                 <i class="zmdi zmdi-power"></i> <span>Logout</span>
                             </a>
 
@@ -81,10 +68,10 @@
                 <!-- Navigation Menu-->
                 <ul class="navigation-menu">
                     <li>
-                        <a href="index.html"><i class="zmdi zmdi-view-dashboard"></i> <span> Dashboard </span> </a>
+                        <a href="{{ url('/') }}"><i class="zmdi zmdi-view-dashboard"></i> <span> Dashboard </span> </a>
                     </li>
                     <li class="has-submenu">
-                        <a href="#"><i class="zmdi zmdi-collection-text"></i><span> Forms </span> </a>
+                        <a href="#"><i class="zmdi zmdi-collection-text"></i><span> Dropdown Menu </span> </a>
                         <ul class="submenu">
                             <li><a href="form-elements.html">General Elements</a></li>
                             <li><a href="form-advanced.html">Advanced Form</a></li>
