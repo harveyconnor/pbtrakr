@@ -24,4 +24,9 @@ mix.js('resources/assets/js/app.js', 'public/js')
     .copy('resources/assets/js/theme/jquery.core.js', 'public/js')
     .copy('resources/assets/js/theme/jquery.app.js', 'public/js')
     .copy('resources/assets/fonts', 'public/fonts')
-    .copy('resources/assets/plugins/select2','public/plugins/select2', false);
+    .copy('resources/assets/plugins/select2','public/plugins/select2', false)
+    .copy('resources/assets/plugins/autoNumeric','public/plugins/autoNumeric', false)
+    .copy('resources/assets/plugins/bootstrap-datepicker','public/plugins/bootstrap-datepicker', false)
+    .copy('resources/assets/plugins/bootstrap-sweetalert','public/plugins/bootstrap-sweetalert', false)
+    .copy('resources/assets/plugins/datatables','public/plugins/datatables', false)
+    .copy('resources/assets/plugins/autocomplete','public/plugins/autocomplete', false);

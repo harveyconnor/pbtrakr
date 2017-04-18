@@ -17,7 +17,7 @@
                         <div class="col-sm-12">
                             <a href="{{ url('/auth/google') }}">
                                 <button type="button" class="btn btn-googleplus waves-effect waves-light">
-                                    <i class="fa fa-google-plus m-r-5"></i> Sign in with Google
+                                    <span class="btn-label"><i class="fa fa-google-plus"></i></span>Sign in with Google
                                 </button>
                             </a>
                         </div>

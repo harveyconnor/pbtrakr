@@ -8,6 +8,8 @@
 <script src="{{ asset('js/waves.js') }}"></script>
 <script src="{{ asset('js/jquery.nicescroll.js') }}"></script>
 <script src="{{ asset('js/plugins/switchery.min.js') }}"></script>
+
+<script src="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.min.js') }}"></script>
 @yield('scripts')
 <script src="{{ asset('js/jquery.core.js') }}"></script>
 <script src="{{ asset('js/jquery.app.js') }}"></script>

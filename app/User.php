@@ -29,7 +29,7 @@ class User extends Authenticatable
 
     public function googles()
     {
-        return $this->hasMany(Google::class);
+        return $this->hasMany(Google::class, 'user_id', 'identifier_key');
     }
 
 }

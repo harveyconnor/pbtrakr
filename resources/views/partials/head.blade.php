@@ -17,6 +17,7 @@
 
     @yield('styles')
 
+    <link href="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.css') }}" rel="stylesheet" type="text/css" />
     <!-- App CSS -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" />
 

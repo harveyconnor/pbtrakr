@@ -34,14 +34,6 @@ class GoogleController extends Controller
         $refreshToken = $user->refreshToken; // not always provided
         $expiresIn = $user->expiresIn;
 
-//        dd($user);
-        // All Providers
-//        $user->getId();
-//        $user->getNickname();
-//        $user->getName();
-//        $user->getEmail();
-//        $user->getAvatar();
-
         $registeredUser = Google::query()->where('google_id',$user->getId())->first();
 
         if (!$registeredUser){
@@ -59,7 +51,7 @@ class GoogleController extends Controller
             $googleUser = Google::query()->where('google_id',$user->getId())->first();
             $accountUser = User::query()->where('identifier_key',$googleUser->user_id)->first();
             Auth::loginUsingId($accountUser->id,true);
-            return redirect('/home');
+            return redirect('/dashboard');
         }
     }
 }

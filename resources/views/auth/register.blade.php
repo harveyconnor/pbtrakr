@@ -25,6 +25,7 @@
                         <div class="col-sm-10">
                                 <img id="avatar" src="{{ Session::get('avatar') }}" class="rounded float-left" alt="Avatar">
                                 <span>Currently logged in with Google.</span>
+                            <span>Not your account? <a href="{{ url('/logout') }}">Click here to logout.</a></span>
                         </div>
                     </div>
                         @else
